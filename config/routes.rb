@@ -1,6 +1,9 @@
 PhotoStream::Application.routes.draw do
   root 'events#new'
 
+  get '/events/:id/photos', to: 'photos#index', as: 'photos'
+  get '/photos/:id', to: 'photos#show', as: 'photo'
+
   resources :events
 end
 
