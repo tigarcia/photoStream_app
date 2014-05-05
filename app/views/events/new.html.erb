@@ -1,0 +1,10 @@
+<h1>Photo Stream</h1>
+
+<%= form_for @event do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :event_date %>
+	<%= f.date_select :event_date %>
+	<%= f.submit %>
+
+<% end %>
