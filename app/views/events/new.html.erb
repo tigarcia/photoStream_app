@@ -1,4 +1,4 @@
-<h1>Photo Stream</h1>
+<h1>Photo Stream New Event</h1>
 
 <%= form_for @event do |f| %>
 	<%= f.label :name %>
@@ -8,3 +8,5 @@
 	<%= f.submit %>
 
 <% end %>
+
+<%= link_to "Event Index", events_path %>
