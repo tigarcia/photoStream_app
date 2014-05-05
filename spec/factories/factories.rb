@@ -8,6 +8,8 @@ FactoryGirl.define do
   end
 
   factory :photo do
+    name "Image"
+    
   end
 
 end
