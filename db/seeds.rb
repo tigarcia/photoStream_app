@@ -12,3 +12,15 @@ events = Event.create ([
   {name: '50th Anniversary', event_date: 20140515}
 
   ])
+
+photos = Photo.create ([
+  {name: 'image1', event_id: 2},
+  {name: 'image2', event_id: 3},
+  {name: 'image3', event_id: 1},
+  {name: 'image3', event_id: 1},
+  {name: 'image3', event_id: 2},
+  {name: 'image3', event_id: 2}
+  
+  ])
+
+
