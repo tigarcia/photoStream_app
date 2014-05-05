@@ -1,0 +1,9 @@
+<h1>Event Index</h1>
+
+<% @events.each do |event| %>
+	<%= link_to event.name, event_path(event.id) %><br>
+	<%= event.event_date %>
+	<!-- TODO add number of photos associated with event here? -->
+<% end %>
+
+<%= link_to "New Event", new_event_path %>
