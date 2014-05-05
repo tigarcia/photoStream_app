@@ -6,8 +6,12 @@ class EventsController < ApplicationController
 
   def create
     event = Event.create event_params
-    event.save
-    redirect_to '/events'
+    if event.save
+      redirect_to '/events'
+    else
+      flash[:error] = "That event name already exits. Please enter a unique name."
+      redirect_to root_path
+    end
   end
 
   def index
