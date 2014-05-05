@@ -10,7 +10,7 @@ class EventsController < ApplicationController
       redirect_to '/events'
     else
       flash[:error] = "That event name already exits. Please enter a unique name."
-      redirect_to root_path
+      redirect_to '/events/new'
     end
   end
 

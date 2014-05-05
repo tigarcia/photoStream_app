@@ -1,10 +1,12 @@
 PhotoStream::Application.routes.draw do
-  root 'events#new'
+  root 'users#new'
 
   get '/events/:id/photos', to: 'photos#index', as: 'photos'
   get '/photos/:id', to: 'photos#show', as: 'photo'
+  get '/users', to: 'users#index', as: 'users'
 
-  resources :events
+  resources :events, :users
+  # resources :photos, :only => :index
 end
 
 # Prefix Verb   URI Pattern                Controller#Action
