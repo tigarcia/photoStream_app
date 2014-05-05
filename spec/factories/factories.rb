@@ -3,8 +3,11 @@
 FactoryGirl.define do
   
   factory :event do
-    name "Exciting Event"
+    name "New Event"
     event_date "20140607"
+  end
+
+  factory :photo do
   end
 
 end
