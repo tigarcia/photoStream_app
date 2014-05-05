@@ -1,0 +1,12 @@
+<h1>Edit Event</h1>
+
+<%= form_for @event do |f| %>
+
+	<%= label_tag :name, "Event Name" %>
+	<%= f.text_field :name %>
+	<%= label_tag :event_date, "Event Date" %>
+	<%= f.date_select :event_date %>
+
+	<%= f.submit "Update Event" %>
+
+<% end %>
