@@ -1,1 +1,10 @@
-<h1>This page is used for all people to upload their event photos. Impliment a route like: '/upload/event/:event id'</h1>
+<h4>This page is used for all people to upload their event photos. Impliment a route like: '/upload/event/:event id'</h4>
+
+
+
+<%= form_for @photo do |f|%>
+<%= label_tag(:image, "Photo Upload: ")%>
+<%= f.file_field :image %>
+<%= f.submit "Upload Photo" %> 
+
+<%end%>

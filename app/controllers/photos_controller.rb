@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
   end
 
   def new
-    #upload page for pictures
+    @photo = Photo.new
   end
 
   private

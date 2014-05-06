@@ -4,7 +4,9 @@
 <p> EVENT DATE: <%= @event.event_date %> </p>
 <p> LAST UPDATED: <%= @event.updated_at %></p>
 <p> PHOTO COUNT: TODO </p>
-<p> PHOTO UPLOAD PAGE: TODO </p>
+
+
+<%=	link_to 'PHOTO UPLOAD PAGE', new_photo_path %>
 
 <%= link_to 'Delete Event', @event, :method => :delete, :confirm => 'Are you sure?' %>
 <%= link_to 'Edit Event Details', edit_event_path(@event) %>

@@ -30,9 +30,6 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt-ruby (3.1.2)
-    better_errors (1.1.0)
-      coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
     builder (3.1.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -163,7 +160,6 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk
   bcrypt-ruby (= 3.1.2)
-  better_errors
   coffee-rails (~> 4.0.0)
   dotenv-rails
   factory_girl_rails
