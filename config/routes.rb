@@ -1,11 +1,12 @@
 PhotoStream::Application.routes.draw do
-  root 'users#new'
+  root 'sessions#new'
 
   get '/events/:id/photos', to: 'photos#index', as: 'photos'
   get '/photos/:id', to: 'photos#show', as: 'photo'
   get '/users', to: 'users#index', as: 'users'
   get '/signin', to: 'sessions#new'
   delete '/signout', to: 'sessions#destroy'
+  get '/signup', to: 'users#new'
 
   resources :events, :users, :sessions
   # resources :photos, :only => :index

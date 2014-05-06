@@ -1,12 +1,15 @@
-<h1>Event Index</h1>
 
-<% @events.each do |event| %>
-	<%= link_to event.name, event_path(event.id) %>
-	<%= event.event_date %>
-	<%= link_to "Photos", photos_path(event.id)%><br>
-	<!-- TODO add number of photos associated with event here? -->
-<% end %>
+<div class="row">
+	<h1>Event Index</h1>
 
-<h1>**********</h1>
+	<% @events.each do |event| %>
+		<%= link_to event.name, event_path(event.id) %>
+		<%= event.event_date %>
+		<%= link_to "Photos", photos_path(event.id)%><br>
+		<!-- TODO add number of photos associated with event here? -->
+	<% end %>
 
-<%= link_to "New Event", new_event_path %>
+	<h1>**********</h1>
+
+	<%= link_to "New Event", new_event_path %>
+</div>
