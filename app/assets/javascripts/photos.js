@@ -1,22 +1,34 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
+//logic for rotating images goes here:
 
-#logic for rotating images goes here:
+// // set an empty var for currentImage:
 
-#set an empty var for currentImage:
+var currentPhoto = 0;
+var image = document.querySelector("#imageSwap");
+var div = document.querySelector("#images");
 
-var currentImage = []
+// pull up a list of all photos from a given event from active record in an array. Each photo will be identified by its id (from active record).
 
-# pull up a list of all photos from a given event from active record in an array. Each photo will be identified by its id (from active record).
+var arrayPhotos = gon.arrayPhotos;
+//pull out the urls into an array
 
- 
-#make sure the list is ordered smallest to greatest. 
+//use the new array of urls in the rotatePhoto function
 
-function rotateImage () {
-#pull up the first image 
-	
-#display it on the page. 
+// make sure the list is ordered smallest to greatest. 
+// arrayPhotos.sort(function(a, b));
+// 	return a - b;
+// });
+
+function rotatePhoto () {
+	if (arrayPhotos.length-1 == currentPhoto) {
+			currentPhoto = 0;
+	} else {
+			currentPhoto++;
+			};
+//		display on the page. 
+  var image = document.querySelector("#imageSwap");
+	// div.appendChild("img");
+	image.setAttribute("src", arrayPhotos[currentPhoto]);
 }
 
-#repeat
-var timer = setInterval(rotateImage, 5000)
+// repeat
+var timer = setInterval(rotatePhoto, 5000)

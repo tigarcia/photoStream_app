@@ -5,6 +5,11 @@ class PhotosController < ApplicationController
   def index
     @event = Event.find(params[:event_id])
     @photos = @event.photos.all
+
+    #creating a variable that will store all the info of each photos as an array(using the gon gem)
+    gon.arrayPhotos = @event.photos.map do |photo|
+      photo.image.url
+    end
   end
 
   def show

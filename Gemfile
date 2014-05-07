@@ -5,7 +5,8 @@ gem 'rails', '4.0.4'
 
 gem 'pg'
 
-
+#added gon gem to assist with photostream and data access
+gem 'gon', '~> 5.0.4'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
@@ -28,6 +29,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+#added to handle image upload and management
 gem 'paperclip'
 gem 'aws-sdk'
 
