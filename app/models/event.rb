@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
 
-  before_save :establish_event_owner
+
   validates :name, presence: true, uniqueness: true
   validates :event_date, presence: true
   # validates_uniqueness_of :

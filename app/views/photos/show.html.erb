@@ -1,5 +1,5 @@
+<%= image_tag @photo.image.url(:medium) %><br>
 
 
-<%= image_tag @photo.image.url(:medium) %>
+<%= link_to "Upload New Photo", new_event_photo_path(@event) %>
 
-<h2>TODO: add a button to submit more photos and/or ??</h2>
