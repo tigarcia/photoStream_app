@@ -9,6 +9,10 @@ PhotoStream::Application.routes.draw do
   get '/signup', to: 'users#new'
   # get '/upload/:event_id', to "photos#new", as: 'upload_photos'
 
-  resources :events, :users, :sessions, :photos
+  resources :events do
+    resources :photos
+  end
+  
+  resources :users, :sessions
 
 end

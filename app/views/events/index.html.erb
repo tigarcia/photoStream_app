@@ -5,7 +5,7 @@
 	<% @events.each do |event| %>
 		<%= link_to event.name, event_path(event.id) %>
 		<%= event.event_date %>
-		<%= link_to "Photos", photos_path(event.id)%><br>
+		<%= link_to "Photos", event_photos_path(event.id)%><br>
 		<!-- TODO add number of photos associated with event here? -->
 	<% end %>
 

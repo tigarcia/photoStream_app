@@ -7,22 +7,30 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.find(params[:id])
+    @event = Event.find(params[:event_id])
+    @photo = @event.photos.find(params[:id])
   end
 
   def new
-    @photo = Photo.new
+    @event = Event.find(params[:event_id])
+    @photo = @event.photos.new
   end
 
   def create
-    # @photo = Photo.new(photo_params)
-    photo = current_user.event.photo.create photo_params
+
+    # current_event = Event.find_by(id: params[:id])
+    # photo = current_event.photo.create photo_params
+
+    @event = Event.find(params[:event_id])
+    @photo = @event.photos.new photo_params
+    # @photo.event_id = current_user.event.find(params[:id])
+    # @photo.save
 
     if @photo.save
-      redirect_to @photo, notice: 'Your photo has been added!'
+      redirect_to event_photo_path(@event, @photo), notice: 'Your photo has been added!'
     else
       flash[:error]='Something went wrong. Please try again.'
-      redirect_to new_photo_path
+      redirect_to new_event_photo_path
     end
   end
 
@@ -35,5 +43,5 @@ class PhotosController < ApplicationController
   private
     def photo_params
       params.require(:photo).permit(:name, :image)
-  end
+    end
 end

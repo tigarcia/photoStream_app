@@ -6,7 +6,7 @@
 <p> PHOTO COUNT: TODO </p>
 
 
-<%=	link_to 'PHOTO UPLOAD PAGE', new_photo_path %>
+<%=	link_to 'PHOTO UPLOAD PAGE', new_event_photo_path(@event) %>
 
 <%= link_to 'Delete Event', @event, :method => :delete, :confirm => 'Are you sure?' %>
 <%= link_to 'Edit Event Details', edit_event_path(@event) %>
