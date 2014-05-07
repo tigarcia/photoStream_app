@@ -1,5 +1,7 @@
 class PhotosController < ApplicationController
 
+  before_filter :signed_in_user, only: [:destroy]
+
   def index
     @photos = Photo.all
   end
@@ -13,7 +15,8 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(photo_params)
+    # @photo = Photo.new(photo_params)
+    photo = current_user.event.photo.create photo_params
 
     if @photo.save
       redirect_to @photo, notice: 'Your photo has been added!'
@@ -21,6 +24,12 @@ class PhotosController < ApplicationController
       flash[:error]='Something went wrong. Please try again.'
       redirect_to new_photo_path
     end
+  end
+
+  def destroy
+    photo = Photo.find(params[:id])
+    photo.delete
+    redirect_to photos_path
   end
 
   private

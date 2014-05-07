@@ -1,11 +1,16 @@
 class EventsController < ApplicationController
+  include EventsHelper
+
+  before_filter :signed_in_user
+  before_filter :check_event_owner, only: [:edit, :update, :destroy]
 
   def new
     @event = Event.new
   end
 
   def create
-    event = Event.create event_params
+    event = current_user.events.create event_params
+  
     if event.save
       redirect_to '/events'
     else
@@ -15,7 +20,8 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = current_user.events
+    
   end
 
   def show
@@ -40,7 +46,7 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name, :event_date)
+      params.require(:event).permit(:name, :event_date, :user_id)
   end
 
 end
