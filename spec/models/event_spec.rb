@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe Event do
+  subject {FactoryGirl.create(:event)}
 
   it 'should respond to name and event_date' do
-    event = FactoryGirl.build(:event)
-    event.should respond_to(:name)
-    event.should respond_to(:event_date)
+    subject.should respond_to(:name)
+    subject.should respond_to(:event_date)
   end
 
   describe 'event_date' do
@@ -32,9 +32,15 @@ describe Event do
       event.should_not be_valid
     end
 
-    # it 'should not be unique' do
-    # TODO: date should only be unique when associated with event name.
-    # end
+  end
+
+  describe 'user for event' do 
+
+    it 'should have a user' do
+      subject.user_id = nil
+      subject.should_not be_valid
+    end
+
   end
 
 end

@@ -8,5 +8,9 @@ describe Photo do
     photo.should respond_to(:event_id)
   end
 
+  it 'should have an event id' do
+    photo = FactoryGirl.build(:photo, event_id: nil)
+    photo.should_not be_valid
+  end
 
 end

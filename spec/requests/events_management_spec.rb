@@ -3,21 +3,21 @@ require 'spec_helper'
 describe 'Events Management' do
 
   # implement when user model created
-  # before :each do 
-  #   @event = FactoryGirl.create(:event)
-  #   @event_attributes = FactoryGirl.attributes_for(:event, name: "Party")
-  #   ApplicationController.any_instance.stub(:current_user).and_return(@event.user)
-  # end
+  before :each do 
+    @event = FactoryGirl.create(:event)
+    @event_attributes = FactoryGirl.attributes_for(:event, name: "Party")
+    ApplicationController.any_instance.stub(:current_user).and_return(@event.user)
+  end
 
-  describe 'root path/new' do
+  describe 'new event path' do
 
     it 'returns 200 status' do
-      get '/'
+      get '/events/new'
       expect(response.status).to eq(200)
     end
 
     it "renders form for new event" do
-      get '/'
+      get '/events/new'
       expect(response).to render_template(:new)
     end
   end
@@ -35,13 +35,28 @@ describe 'Events Management' do
     end
   end
 
-  # describe 'editing an event' do
+  describe 'creating a new event' do
 
-  #   it 'should update the event in database' do
-  #     get 'events/#{@event.id}/edit'
+    it 'renders a form and creates a new event' do
+      get '/events/new'
+      expect(response).to render_template(:new)
 
-  #     expect(response.body).to include("")
-  #   end
-  # end
+      post "/events", @event 
+
+      expect(response).to render_template(:event)
+      follow_redirect!
+
+      expect(response).to render_template(:show)
+      expect(response.body).to include("Party")
+    end
+
+  end  
 
 end
+
+
+
+
+
+
+
