@@ -9,6 +9,7 @@ class Photo < ActiveRecord::Base
   }
 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-
+  validates :event_id, presence: true
 
 end
+
