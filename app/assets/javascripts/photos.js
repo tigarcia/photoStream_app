@@ -41,18 +41,16 @@ function rotatePhoto () {
 // repeat
 var timer = setInterval(rotatePhoto, 5000)
 
-// adding a second timer that checks for new images
+
 function refetchPhotos () {
 	sc.getJSON(url, updatePhotos);
-	setInterval(refetchImages, 12000);
-}
+};
 //add a function that gathers the new images
-
 function updatePhotos (json) {
 	arrayPhotos = json;
 };
-
-
+// adding a second timer that checks for new images
+setInterval(refetchImages, 12000);
 
 
 

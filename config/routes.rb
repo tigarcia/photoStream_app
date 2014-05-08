@@ -16,3 +16,6 @@ PhotoStream::Application.routes.draw do
   resources :users, :sessions
 
 end
+
+# match "/stream/:id", to: "photos#index", via: 'get'
+# match "/addphoto/:id", to: "photos#new", via: 'get'

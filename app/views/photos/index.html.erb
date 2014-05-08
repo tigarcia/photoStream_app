@@ -1,7 +1,7 @@
-<h1>Photo Index</h1>
+<h1>Photo Stream</h1>
 
 <div id="imageContainer">
-	<img src="/images/Boston City Flow.jpg" id="imageSwap">
+	<%= image_tag src="spinnerLarge.gif", id:"imageSwap"%>
 </div>
 
-
+<%= link_to "Exit", event_path(@event) %>
