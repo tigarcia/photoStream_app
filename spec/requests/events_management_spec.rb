@@ -41,12 +41,12 @@ describe 'Events Management' do
       get '/events/new'
       expect(response).to render_template(:new)
 
-      post "/events", @event 
+      post "/events", event: @event_attributes
 
-      expect(response).to render_template(:event)
+      expect(response).to redirect_to("/events")
       follow_redirect!
 
-      expect(response).to render_template(:show)
+      expect(response).to render_template(:index)
       expect(response.body).to include("Party")
     end
 
