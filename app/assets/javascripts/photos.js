@@ -1,18 +1,16 @@
 //logic for rotating images goes here:
 
-// // set an empty var for currentImage:
+//set an empty var for currentImage:
 
 var currentPhoto = 0;
+//reach into DOM and select elements you will be playing with:
 var image = document.querySelector("#imageSwap");
 var div = document.querySelector("#images");
 
-// pull up a list of all photos from a given event from active record in an array. Each photo will be identified by its id (from active record).
-
+// pull up a list of all photos from a given event from active record in an array. 
 var arrayPhotos = gon.arrayPhotos;
-//pull out the urls into an array
 
-//use the new array of urls in the rotatePhoto function
-
+//TODO: pull up a list of images that are ordered first to last by id. This helps order image streaming by time.
 // make sure the list is ordered smallest to greatest. 
 // arrayPhotos.sort(function(a, b));
 // 	return a - b;

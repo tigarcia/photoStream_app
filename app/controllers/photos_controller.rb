@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  respond_to :json
 
   before_filter :signed_in_user, only: [:destroy]
 
@@ -6,9 +7,15 @@ class PhotosController < ApplicationController
     @event = Event.find(params[:event_id])
     @photos = @event.photos.all
 
-    #creating a variable that will store all the info of each photos as an array(using the gon gem)
-    gon.arrayPhotos = @event.photos.map do |photo|
-      photo.image.url
+    #using gon, creating a variable that will store the image url of each photo in an array
+    # gon.arrayPhotos = @event.photos.map do |photo|
+      # photo.image.url
+
+    #implementing JSON instead of using gon for displaying photos
+    respond_with(@photos) do |format|
+      format.html {render "index"}
+      format.json {render json: @photos.as_json}
+    #event.photos.order
     end
   end
 
