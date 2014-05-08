@@ -1,8 +1,6 @@
-<h4>Upload Your Photos</h4>
-
 <%= form_for [@event, @photo] do |f|%>
-		<%= label_tag(:image, "Photo Upload: ")%>
+		<h2><%= label_tag(:image, "Photo Upload: ")%></h2>
 		<%= f.file_field :image %>
-		<%= f.submit "Upload Photo" %> 
+		<%= f.submit "Upload Photo", class: "btn btn-success photoUpload" %> 
 
 <%end%>
