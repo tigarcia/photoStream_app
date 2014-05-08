@@ -1,4 +1,4 @@
-//logic for rotating images goes here:
+//logic for streaming images goes here:
 
 //ajax for wrapping JSON from FEWD Course 
 var sc = {

@@ -7,13 +7,11 @@ class PhotosController < ApplicationController
     @event = Event.find(params[:event_id])
     @photos = @event.photos.all
 
-    #using gon, creating a variable that will store the image url of each photo in an array
-    # gon.arrayPhotos = @event.photos.map do |photo|
-      # photo.image.url
+   #using map to create an array that holds the image urls
     arrayPhotos = @event.photos.map do |photo|
         photo.image.url
     end
-
+    #storing array to pass into javascript
     gon.arrayPhotos = arrayPhotos
     #storing the event id
     gon.eventId = @event.id
@@ -64,5 +62,9 @@ class PhotosController < ApplicationController
   private
     def photo_params
       params.require(:photo).permit(:name, :image)
+    end
+
+    def event_id 
+       @event = Event.find(params[:event_id])
     end
 end
