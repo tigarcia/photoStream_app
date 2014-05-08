@@ -50,7 +50,7 @@ function updatePhotos (json) {
 	arrayPhotos = json;
 };
 // adding a second timer that checks for new images
-setInterval(refetchImages, 12000);
+setInterval(refetchPhotos, 12000);
 
 
 

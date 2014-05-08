@@ -12,3 +12,9 @@
  *= require_self
  *= require_tree .
  */
+
+/*adding top padding to push body down*/
+body {
+	padding-top: 10%;
+}
+

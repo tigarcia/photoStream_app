@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
   before_filter :signed_in_user, only: [:destroy]
 
   def index
-    @event = Event.find(params[:event_id])
+    event_id 
     @photos = @event.photos.all
 
    #using map to create an array that holds the image urls
@@ -27,20 +27,20 @@ class PhotosController < ApplicationController
 
   def show
     #all photos are nested under an event. To show a photo, first look up the event via the event_id. 
-    @event = Event.find(params[:event_id])
+    event_id 
     @photo = @event.photos.find(params[:id])
   end
 
   def new
     #same as show.
-    @event = Event.find(params[:event_id])
+    event_id
     @photo = @event.photos.new
   end
 
   def create
     #when uploading a new photo, ensure that the photo has an event id.
     #First find the event that the photo is linked to (via the route used to upload photos)
-    @event = Event.find(params[:event_id])
+    event_id
     #create a new photo 
     @photo = @event.photos.new photo_params
     #the if photo save, saves the photo if the above two lines run and redirect you to a page to view the individual photo, plus confirmation message.
@@ -63,7 +63,7 @@ class PhotosController < ApplicationController
     def photo_params
       params.require(:photo).permit(:name, :image)
     end
-
+    # new method to DRY up code.
     def event_id 
        @event = Event.find(params[:event_id])
     end
