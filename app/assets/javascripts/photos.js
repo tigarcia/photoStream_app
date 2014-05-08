@@ -1,20 +1,31 @@
 //logic for rotating images goes here:
 
-//set an empty var for currentImage:
+//ajax for wrapping JSON from FEWD Course 
+var sc = {
+getJSON: function(url, success) {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var json = JSON.parse(xhr.response);
+          success(json);
+        }
+      }
+      xhr.open("GET", url);
+      xhr.send();
+    },
+};
 
+//set an empty var for currentImage:
 var currentPhoto = 0;
 //reach into DOM and select elements you will be playing with:
 var image = document.querySelector("#imageSwap");
-var div = document.querySelector("#images");
+//commenting out becuase not needed? 
+//var div = document.querySelector("#images");
 
 // pull up a list of all photos from a given event from active record in an array. 
 var arrayPhotos = gon.arrayPhotos;
-
-//TODO: pull up a list of images that are ordered first to last by id. This helps order image streaming by time.
-// make sure the list is ordered smallest to greatest. 
-// arrayPhotos.sort(function(a, b));
-// 	return a - b;
-// });
+var eventId = gon.eventId;
+var url = gon.url;
 
 function rotatePhoto () {
 	if (arrayPhotos.length-1 == currentPhoto) {
@@ -27,6 +38,26 @@ function rotatePhoto () {
 	// div.appendChild("img");
 	image.setAttribute("src", arrayPhotos[currentPhoto]);
 }
-
 // repeat
 var timer = setInterval(rotatePhoto, 5000)
+
+// adding a second timer that checks for new images
+function refetchPhotos () {
+	sc.getJSON(url, updatePhotos);
+	setInterval(refetchImages, 12000);
+}
+//add a function that gathers the new images
+
+function updatePhotos (json) {
+	arrayPhotos = json;
+};
+
+
+
+
+
+
+
+
+
+

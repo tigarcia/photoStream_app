@@ -10,11 +10,19 @@ class PhotosController < ApplicationController
     #using gon, creating a variable that will store the image url of each photo in an array
     # gon.arrayPhotos = @event.photos.map do |photo|
       # photo.image.url
+    arrayPhotos = @event.photos.map do |photo|
+        photo.image.url
+    end
 
+    gon.arrayPhotos = arrayPhotos
+    #storing the event id
+    gon.eventId = @event.id
+    #storing url 
+    gon.url = event_photos_path + ".json"
     #implementing JSON instead of using gon for displaying photos
-    respond_with(@photos) do |format|
+    respond_with(arrayPhotos) do |format|
       format.html {render "index"}
-      format.json {render json: @photos.as_json}
+      format.json {render json: arrayPhotos.as_json}
     #event.photos.order
     end
   end
