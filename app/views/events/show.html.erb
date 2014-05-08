@@ -1,17 +1,20 @@
-<h1><%= @event.name %> Info Page </h1>
+<h1><%= @event.name %></h1>
 
-<p> EVENT NAME: <%= @event.name %> </p>
 <p> EVENT DATE: <%= @event.event_date %> </p>
-<p> LAST UPDATED: <%= @event.updated_at %></p>
-<p> PHOTO COUNT: <%= @event.photos.empty? ? "empty": @event.photos.length %></p>
 
+<%= link_to 'Stream Photos', event_photos_path(@event), class: "btn btn-success btn-lg" %><br>
 
-<%=	link_to 'PHOTO UPLOAD PAGE', new_event_photo_path(@event) %><br>
+<h3> Your link for Photo Upload: <%= link_to "/events/#{@event.id}/photos/new", new_event_photo_path(@event), class: "btn btn-info" %></h3>
 
-<%= link_to 'Delete Event', @event, :method => :delete, :confirm => 'Are you sure?' %><br>
-<%= link_to 'Edit Event Details', edit_event_path(@event) %><br>
-
-<%= link_to 'Stream Photos', event_photos_path(@event) %>
+<p><strong> PHOTOS: <%= @event.photos.empty? ? "empty": @event.photos.length %></strong></p>
 
 
 
+<%= link_to 'Delete', @event, :method => :delete, :confirm => 'Are you sure?' %><br>
+<%= link_to 'Edit', edit_event_path(@event) %><br>
+
+
+
+
+
+<!-- TODO: add a line that tells you when the last photo was added (photoStream last updated at: XXX) -->

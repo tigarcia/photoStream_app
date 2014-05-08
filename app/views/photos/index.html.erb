@@ -1,7 +1,7 @@
 <h1>Photo Stream</h1>
 
 <div id="imageContainer">
-	<%= image_tag src="spinnerLarge.gif", id:"imageSwap"%>
+	<%= image_tag src="spinnerLarge.gif", id:"imageSwap", class: "img-responsive" %>
 </div>
 
-<%= link_to "Exit", event_path(@event) %>
+<%= link_to "Exit", event_path(@event), class: "btn btn-warning btn-sm exitButton" %>
