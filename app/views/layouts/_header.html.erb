@@ -14,8 +14,9 @@
 
     <div class="collapse navbar-collapse" id="bar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/users/#{user.id}">My Events</a></li>
-       
+        <% if signed_in? %>
+        <li class="active"><%= link_to "My Events", events_path %></li>
+        <% end %>
       </ul>
           <ul class="nav navbar-nav navbar-right">
             
