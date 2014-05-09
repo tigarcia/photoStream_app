@@ -2,11 +2,11 @@
 
 <%= form_for @event do |f| %>
 	<%= f.label :name %>
-	<%= f.text_field :name %>
+	<%= f.text_field :name, class: "form-control"%><br>
 	<%= f.label :event_date %>
-	<%= f.date_select :event_date %>
+	<%= f.date_select :event_date, class: "form-control"%>
 	<%= f.submit %>
 
 <% end %>
 
-<%= link_to "Event Index", events_path %>
+<%= link_to "Event Index", events_path, class: "btn btn-primary btn-sm newEvent" %>

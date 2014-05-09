@@ -2,8 +2,8 @@ class Photo < ActiveRecord::Base
   belongs_to :event
 
   has_attached_file :image, styles: {
-    thumb: '100x100>',
-    square: '200x200#',
+    # thumb: '100x100>',
+    # square: '200x200#',
     medium: '300x300>',
     # full: '500x500^'
   }
