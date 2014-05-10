@@ -5,7 +5,7 @@ class PhotosController < ApplicationController
 
   def index
     event_id 
-    @photos = @event.photos.all
+    @photos = @event.photos
 
    #using map to create an array that holds the image urls
     arrayPhotos = @event.photos.map do |photo|

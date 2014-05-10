@@ -22,4 +22,19 @@ describe User do
 
   end
 
+  describe 'name' do
+
+    it 'should not be empty' do
+      user = FactoryGirl.build(:user, name: nil)
+      user.should_not be_valid
+    end
+  end
+
+  describe 'password' do
+    it 'should match not be valid if it differs from password confirmation' do
+      user = FactoryGirl.build(:user, password_confirmation: "hello")
+      user.should_not be_valid
+    end
+  end
+
 end
