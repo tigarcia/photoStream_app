@@ -3,14 +3,13 @@
 <p> EVENT DATE: <%= @event.event_date %> </p>
 
 <%= link_to 'Stream Photos', event_photos_path(@event), class: "btn btn-success btn-lg" %><br>
-<!-- removing original link to upload -->
-<!-- <h3> Your link for Photo Upload: <%= link_to "/events/#{@event.id}/photos/new", new_event_photo_path(@event), class: "btn btn-info" %></h3> -->
 
 <!-- adding a shortened url for uploading photos -->
 <h3> Your link for Photo Upload: <%= link_to "/upload/#{@event.id}", upload_path(@event), class: "btn btn-info" %></h3>
 
 <p><strong> PHOTOS: <%= @event.photos.empty? ? "empty": @event.photos.length %></strong></p>
 
+<a href="mailto:?subject=Use this link to upload photos&body=LINK: <%=upload_url(@event)%>", class="btn btn-warning btn-sm">Email Link</a><br>
 
 
 <%= link_to 'Delete', @event, :method => :delete, :confirm => 'Are you sure?' %><br>
