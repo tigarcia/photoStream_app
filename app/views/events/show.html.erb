@@ -1,20 +1,21 @@
-<h1><%= @event.name %></h1>
+<h1><%= @event.name %><%= link_to 'Stream Photos', event_photos_path(@event), class: "btn btn-success btn-lg stream" %></h1><br>
 
 <p> EVENT DATE: <%= @event.event_date %> </p>
-
-<%= link_to 'Stream Photos', event_photos_path(@event), class: "btn btn-success btn-lg" %><br>
-
-<!-- adding a shortened url for uploading photos -->
-<h3> Your link for Photo Upload: <%= link_to "/upload/#{@event.id}", upload_path(@event), class: "btn btn-info" %></h3>
-
 <p><strong> PHOTOS: <%= @event.photos.empty? ? "empty": @event.photos.length %></strong></p>
 
-<a href="mailto:?subject=Use this link to upload photos&body=LINK: <%=upload_url(@event)%>", class="btn btn-warning btn-sm">Email Link</a><br>
 
 
-<%= link_to 'Delete', @event, :method => :delete, :confirm => 'Are you sure?' %><br>
-<%= link_to 'Edit', edit_event_path(@event) %><br>
+<!-- adding a shortened url for uploading photos -->
+<h3> Photo Upload link: 
+<%= link_to "/upload/#{@event.id}", upload_path(@event), class: "btn btn-primary btn-sm" %></h3><br>
 
+<a href="mailto:?subject=Use this link to upload photos&body=LINK: <%=upload_url(@event)%>", class="btn btn-warning btn-xs email">Email Link</a>
+
+<%= link_to 'Edit', edit_event_path(@event), class: "btn btn-warning btn-xs edit" %>
+
+<%= link_to @event, :method => :delete, :confirm => 'Are you sure?', :class=> "btn btn-danger btn-xs delete" do%>
+			<span class="glyphicon glyphicon-trash"></span>
+			<% end %>
 
 
 
