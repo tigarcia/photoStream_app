@@ -4,7 +4,7 @@
 
 	<div id="imageContainer">
 		<% if @event.photos.count > 0 %>
-			<%= image_tag src="spinnerLarge.gif", id:"imageSwap", class: "img-responsive" %>
+			<%= image_tag src="spinnerLarge.gif", id:"imageSwap", class: "img-responsive spinner" %>
 		<%else %>
 			<p>No photos uploaded yet...</p>
 			<%= link_to "Upload Photos", new_event_photo_path(@event), class: "btn btn-primary btn-sm"%>
