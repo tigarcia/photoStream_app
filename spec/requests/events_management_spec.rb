@@ -14,7 +14,7 @@ describe 'Events Management' do
     it 'returns 200 status' do
       get '/events/new'
       expect(response.status).to eq(200)
-    end
+    end 
 
     it "renders form for new event" do
       get '/events/new'
