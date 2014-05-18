@@ -15,6 +15,7 @@
 				<tr>
 					<td><%= link_to event.name, event_path(event.id) %></td>
 					<td><%= event.event_date.to_s %></td>
+					<!-- The link_to will still happen even if this is commented out.  Erb doesn't get commented out that easily.  I don't think it affects your code, but just something to be aware of. -->
 					<!-- <td><%= link_to "/upload/#{event.id}", event_photos_path(event.id)%></td><br> -->
 					<td><%= event.photos.count %></td>
 					

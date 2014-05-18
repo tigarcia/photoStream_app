@@ -1,6 +1,11 @@
 
 
 <div class="row">
+    <!-- 
+      The css for the form was a little off for me depending on the size of
+      the window.  The form would always be justified to the right and off
+      of the screen.
+    -->
     <div class="col-md-12 col-sm-12 col-md-offset-3 col-sm-offset-3">
 
       <h1>Sign up</h1>
@@ -16,6 +21,7 @@
               <% end %>
             </ul>
             <% end %>
+
 
     		<%= f.label :name %>
     		<%= f.text_field :name, class: "form-control focusedInput" %>

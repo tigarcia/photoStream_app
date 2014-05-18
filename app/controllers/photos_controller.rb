@@ -9,8 +9,13 @@ class PhotosController < ApplicationController
 
    #using map to create an array that holds the image urls
     arrayPhotos = @event.photos.map do |photo|
+      ## watch out for spacing
         photo.image.url
     end
+
+    ## Since you are using ajax to get your data, I don't think you need
+    ## to use gon here at all.
+
     #storing array to pass into javascript
     gon.arrayPhotos = arrayPhotos
     #storing the event id
@@ -27,12 +32,15 @@ class PhotosController < ApplicationController
 
   def show
     #all photos are nested under an event. To show a photo, first look up the event via the event_id. 
+
+    ## You can just add a before_action that calls event_id for you instead of writing
+    ## it at the top of each method
     event_id 
     @photo = @event.photos.find(params[:id])
   end
 
   def new
-    #same as show.
+    ## same as show.
     event_id
     @photo = @event.photos.new
   end
@@ -63,8 +71,11 @@ class PhotosController < ApplicationController
     def photo_params
       params.require(:photo).permit(:name, :image)
     end
+
+    ## I like this.
     # new method to DRY up code.
     def event_id 
+      # spacing is off
        @event = Event.find(params[:event_id])
     end
 end

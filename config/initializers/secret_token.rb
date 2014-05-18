@@ -9,4 +9,7 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-PhotoStream::Application.config.secret_token = ENV['SECRET_KEY_BASE']
+
+## Looks like you got the name of the config mixed up a little.  It should
+## be secret_key_base instead of secret_token
+PhotoStream::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']

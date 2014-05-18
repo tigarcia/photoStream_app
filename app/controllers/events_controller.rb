@@ -12,9 +12,12 @@ class EventsController < ApplicationController
     event = current_user.events.create event_params
   
     if event.save
+      ## To ensure you don't make any mistakes, it would be good to use the
+      ## path helper methods.  In this case, you are redirecting to events_path
       redirect_to '/events'
     else
       flash[:error] = "That event name already exits. Please enter a unique name."
+      ## Use event helpers, new_event_path
       redirect_to '/events/new'
     end
   end
@@ -30,6 +33,7 @@ class EventsController < ApplicationController
   def destroy
     event = Event.find(params[:id])
     event.delete
+    ## Make sure to use helpers, events_path
     redirect_to '/events'
   end
 

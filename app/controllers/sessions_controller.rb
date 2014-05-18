@@ -4,7 +4,9 @@ class SessionsController < ApplicationController
   end
 
   def index
-    
+    ## The view that corresponds to this method seems a little out of
+    ## place.  It may make sense to have a sitescontroller that just
+    ## handles some basic pages that aren't authenticated.
   end
 
   def create 

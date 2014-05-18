@@ -1,3 +1,6 @@
+# Good job here too.  I'm really happy to see that you have TODOs
+# for yourself to look into later.
+
 class Event < ActiveRecord::Base
 
 

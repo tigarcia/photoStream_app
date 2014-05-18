@@ -23,6 +23,9 @@ var image = document.querySelector("#imageSwap");
 //var div = document.querySelector("#images");
 
 // pull up a list of all photos from a given event from active record in an array. 
+
+// Since you have an ajax call already, you don't need gon to get the data.
+// Just use ajax!
 var arrayPhotos = gon.arrayPhotos;
 var eventId = gon.eventId;
 var url = gon.url;
